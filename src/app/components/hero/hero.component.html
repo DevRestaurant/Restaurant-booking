@@ -1,0 +1,26 @@
+<section id="hero">
+  <div class="hero-container">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active" [ngStyle]="{'background': 'url(assets/img/slide/slide-2.jpg)'}">
+          <div class="carousel-container">
+            <div class="carousel-content">
+              <h2 class="animate__animated animate__fadeInDown"><span>JustFoodie</span> Restaurant</h2>
+              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea
+                ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem.
+                Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <div>
+                <a routerLink="menu" [ngStyle]="{'textDecoration': 'none'}" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
+                <a routerLink="booking" [ngStyle]="{'textDecoration': 'none'}" class="btn-book animate__animated animate__fadeInUp scrollto">Reservation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

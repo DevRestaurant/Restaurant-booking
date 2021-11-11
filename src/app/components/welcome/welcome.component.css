@@ -1,0 +1,14 @@
+
+.about-section-box .img-fluid {
+    box-shadow: 20px 20px 0px #ffb03b;
+}
+.inner-column {
+    text-align: left;
+}
+ .inner-column h1 {
+    color: #010101;
+    font-weight: 500;
+}
+.inner-column h1 span {
+    color: #ffb03b;
+}
