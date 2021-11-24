@@ -15,7 +15,7 @@ var httpOptions = {
 var MenuServiceService = /** @class */ (function () {
     function MenuServiceService(_httpClient) {
         this._httpClient = _httpClient;
-        this.baseUrl = 'http://localhost:31836/api/Authentication/Login';
+        this.baseUrl = 'http://hoteldotnet.herokuapp.com/api/Authentication/login';
         this.logged = 'false';
         if (localStorage.getItem("logged") === null) {
             this.logged = 'false';
@@ -23,9 +23,6 @@ var MenuServiceService = /** @class */ (function () {
         }
         else {
             this.logged = 'true';
-            //this.logged = localStorage.getItem("logged")?.replace(/['"]+/g, '');
-            console.log(this.logged);
-            //localStorage.removeItem('logged');
         }
     }
     MenuServiceService.prototype.LoginUser = function (login) {

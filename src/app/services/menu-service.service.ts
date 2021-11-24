@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class MenuServiceService{
 
-  baseUrl: string = 'http://localhost:31836/api/Authentication/Login';
+  baseUrl: string = 'http://hoteldotnet.herokuapp.com/api/Authentication/login';
   logged: string | null = 'false';
 
   constructor(private _httpClient: HttpClient) {
@@ -23,9 +23,6 @@ export class MenuServiceService{
     }
     else{
       this.logged = 'true';
-    //this.logged = localStorage.getItem("logged")?.replace(/['"]+/g, '');
-    console.log(this.logged);
-    //localStorage.removeItem('logged');
     }
    }
 
