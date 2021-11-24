@@ -1,1 +1,73 @@
-<p>login works!</p>
+
+
+
+<!-- <style>
+  .error-message
+  {
+    position: fixed!important; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 2%;
+    bottom: 3%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    color: #ffffff;
+  }
+  </style> -->
+
+
+
+
+<div class="mt-5 pt-5 modal-dialog"  [ngStyle]="{'width': '40%'}">
+    <div class="modal-content mt-5 pt-3" [ngStyle]="{'background': 'url(assets/img/chefs-bg.jpg) center center no-repeat', 'border': 0}">
+      <div class="modal-header">
+        <h5 class="m-auto">Welcome Back to Justfoodie</h5>
+      </div>
+      <div class="m-auto" [ngStyle]="{'width': '85%'}">
+
+        <form #returnCustomer="ngForm" (ngSubmit)= onSubmit(returnCustomer)>
+          <div class="mb-3">
+            <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="email"
+            #loginEmail="ngModel"
+              [ngClass]="{'is-invalid': loginEmail.errors && returnCustomer.submitted}" required
+              pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$">
+            <div [hidden]="!loginEmail.errors?.required" class="invalid-feedback">Field cannot be empty
+            </div>
+            <div [hidden]="!loginEmail.errors?.pattern" class="invalid-feedback">Valid email required
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="password"
+              [ngClass]="{'is-invalid': loginPassword.errors && returnCustomer.submitted}" #loginPassword="ngModel"
+              required pattern="^.*(?=.{6,})(?=.*\d)(?=.*[a-z])(?=.*[!*@#$%^&+=]).*$">
+
+            <div [hidden]="!loginPassword.errors?.required" class="invalid-feedback">Field cannot be empty
+            </div>
+            <div [hidden]="!loginPassword.errors?.pattern" class="invalid-feedback">minimum of 6 character including
+              upper case, number and special character
+            </div>
+
+          </div>
+
+          <div class="mb-3 ">
+            <div class="d-flex justify-content-between modal-footer m-auto">
+              <div class="justify-content-start col-lg-8 col-12 m-0 p-0 mt-2">
+                <h6 class="col-lg-8">New account?
+                <a [ngStyle]="{'cursor': 'pointer', 'fontFamily': 'sans serif',
+                 'textDecoration': 'none', 'color': '#346eeb', 'marginLeft': '.1rem'}"
+                 routerLink="/register" routerLinkActive="router-link-active"  class="col-lg-4">Register</a> </h6>
+              </div>
+
+              <button class="col-lg-3" type="submit" [ngStyle]="{'color': '#fff', 'border': 0,
+               'borderRadius': '5px', 'backgroundColor': '#eb9e34'}">Login</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+<!-- <app-booking [logged]="logged"></app-booking> -->

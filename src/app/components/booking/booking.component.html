@@ -1,3 +1,4 @@
+
 <section class = "banner" [ngStyle]="{'background': 'url(assets/img/slide/slide-1.jpg) center/cover no-repeat'}">
   
   <div class = "card-container">
@@ -7,18 +8,9 @@
 
       <div class = "card-content">
           <h2>Make a Reservation</h2>
-          <form>
+          <form #submitForm="ngForm" (ngSubmit)="onSubmit(submitForm)">
               <div class = "form-row">
-                  <select name = "days">
-                      <option value = "day-select">Select Day</option>
-                      <option value = "sunday">Sunday</option>
-                      <option value = "monday">Monday</option>
-                      <option value = "tuesday">Tuesday</option>
-                      <option value = "wednesday">Wednesday</option>
-                      <option value = "thursday">Thursday</option>
-                      <option value = "friday">Friday</option>
-                      <option value = "saturday">Saturday</option>
-                  </select>
+                  <input type="date" name="date">
 
                   <select name = "hours">
                       <option value = "hour-select">Select Hour</option>

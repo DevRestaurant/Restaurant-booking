@@ -42,7 +42,7 @@ form select, form input{
   border-bottom: 1px solid #eee;
   font-weight: 400;
 }
-form input[type = text], form input[type = number], form input::placeholder, select{
+form input[type = text], form input[type = number], form input[type = date], form input::placeholder, select{
   color: #9a9a9a;
 }
 form input[type = submit]{

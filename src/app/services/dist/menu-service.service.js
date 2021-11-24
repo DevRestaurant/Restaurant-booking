@@ -10,12 +10,23 @@ exports.MenuServiceService = void 0;
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 var httpOptions = {
-    headers: new http_1.HttpHeaders({ 'COntent-Type': 'application/json' })
+    headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' })
 };
 var MenuServiceService = /** @class */ (function () {
     function MenuServiceService(_httpClient) {
         this._httpClient = _httpClient;
         this.baseUrl = 'http://localhost:31836/api/Authentication/Login';
+        this.logged = 'false';
+        if (localStorage.getItem("logged") === null) {
+            this.logged = 'false';
+            console.log(this.logged);
+        }
+        else {
+            this.logged = 'true';
+            //this.logged = localStorage.getItem("logged")?.replace(/['"]+/g, '');
+            console.log(this.logged);
+            //localStorage.removeItem('logged');
+        }
     }
     MenuServiceService.prototype.LoginUser = function (login) {
         return this._httpClient.post(this.baseUrl, login, httpOptions);

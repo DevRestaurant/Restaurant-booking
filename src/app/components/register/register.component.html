@@ -1,1 +1,89 @@
-<p>register works!</p>
+<div class="mt-5 pt-5 ">
+  <div class="modal-dialog">
+    <div class="modal-content" [ngStyle]="{'background': 'url(assets/img/chefs-bg.jpg) center center no-repeat', 'border': 0}">
+      <div class="modal-header">
+        <h5 class="m-auto">Register to recieve the best offer</h5>
+      </div>
+      <div class="m-auto" [ngStyle]="{'width': '85%'}">
+        <form #newCustomer="ngForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" name="firstName" placeholder="FirstName" [(ngModel)]="first"
+              [ngClass]="{'is-invalid': clientFirstname.errors && clientFirstname.touched}" #clientFirstname="ngModel"
+              required>
+
+            <div [hidden]="!clientFirstname.errors?.required" class="invalid-feedback">First name required
+            </div>
+          </div>
+
+          <div class="mb-3">
+
+            <input type="text" class="form-control" name="lastName" placeholder="LastName" [(ngModel)]="last"
+              [ngClass]="{'is-invalid': clientLastname.errors && clientLastname.touched}" #clientLastname="ngModel"
+              required>
+
+            <div [hidden]="!clientFirstname.errors?.required" class="invalid-feedback">Last name required
+            </div>
+          </div>
+
+          <div class="mb-3">
+
+            <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="email"
+              [ngClass]="{'is-invalid': clientEmail.errors && clientEmail.touched}" #clientEmail="ngModel" required
+              pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$">
+
+            <div [hidden]="!clientEmail.errors?.required" class="invalid-feedback">Field cannot be empty
+            </div>
+            <div [hidden]="!clientEmail.errors?.pattern" class="invalid-feedback">Valid email required
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+
+            <input type="text" class="form-control" name="address" placeholder="Address" [(ngModel)]="address"
+              [ngClass]="{'is-invalid': clientAddress.errors && clientAddress.touched}" #clientAddress="ngModel"
+              required>
+
+            <div [hidden]="!clientAddress.errors?.required" class="invalid-feedback">Field cannot be empty
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+
+            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="password"
+              [ngClass]="{'is-invalid': clientPassword.errors && clientPassword.touched}" #clientPassword="ngModel"
+              required pattern="^.*(?=.{6,})(?=.*\d)(?=.*[a-z])(?=.*[!*@#$%^&+=]).*$">
+
+            <div [hidden]="!clientPassword.errors?.required" class="invalid-feedback">Field cannot be empty
+            </div>
+            <div [hidden]="!clientPassword.errors?.pattern" class="invalid-feedback">minimum of 6 character including
+              upper case, number and special character
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+            <input class="form-control" type="file" id="formFile" name="Add Services" multiple>
+          </div>
+
+          <div class="mb-3 ">
+
+            <div class="d-flex justify-content-between modal-footer m-0">
+              <div class="justify-content-start col-lg-8 col-12 m-0 p-0">
+                <h6 class="col-lg-8">Have an account?
+                <a [ngStyle]="{'cursor': 'pointer', 'fontFamily': 'sans serif',
+                 'textDecoration': 'none', 'color': '#346eeb', 'marginLeft': '.3rem'}" 
+                 class="col-lg-4" routerLink="/login" routerLinkActive="router-link-active" >Login</a> </h6>
+              </div>
+             
+              <button type="button" class="col-lg-3 col-12" [ngStyle]="{'color': '#fff', 'border': 0,
+              'borderRadius': '5px', 'backgroundColor': '#eb9e34'}">Register</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,11 +13,13 @@ export class AppComponent implements OnInit {
 
   constructor(private _router: Router) { }
 
-  ngOnInit(): void{
+  ngOnInit() {
     this._router.events
     .subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.footer = (event.url !== '/booking')
+        this.footer = (event.url !== '/booking'
+         && event.url !== '/login'
+         && event.url !== '/register')
       }
     });
   }
