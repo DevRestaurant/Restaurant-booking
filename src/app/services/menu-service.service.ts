@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class MenuServiceService{
 
-  baseUrl: string = 'http://hoteldotnet.herokuapp.com/api/Authentication/login';
+  baseUrl: string = 'https://hoteldotnet.herokuapp.com/api/Authentication/login';
   logged: string | null = 'false';
 
   constructor(private _httpClient: HttpClient) {
