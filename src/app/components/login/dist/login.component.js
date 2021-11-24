@@ -36,7 +36,7 @@ var LoginComponent = /** @class */ (function () {
                 },
                 error: function () {
                     _this._flashmessage.show("Invalid Credentials", {
-                        cssClass: 'error-message', timeout: 3000
+                        cssClass: 'alert-danger', timeout: 3000
                     });
                 }
             });
