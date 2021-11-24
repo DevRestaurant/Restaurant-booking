@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.logged = this.menuService.logged;
   }
-  
   logOut(){
     localStorage.removeItem('logged');
     this._router.navigate(['/']);
