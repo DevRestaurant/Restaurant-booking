@@ -15,7 +15,7 @@ var httpOptions = {
 var MenuServiceService = /** @class */ (function () {
     function MenuServiceService(_httpClient) {
         this._httpClient = _httpClient;
-        this.baseUrl = 'https://hoteldotnet.herokuapp.com/api/Authentication/login';
+        this.baseUrl = 'http://localhost:31836/api/Authentication/Login';
         this.logged = 'false';
         if (localStorage.getItem("logged") === null) {
             this.logged = 'false';

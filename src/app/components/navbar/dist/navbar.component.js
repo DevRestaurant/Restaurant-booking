@@ -8,17 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.NavbarComponent = void 0;
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var NavbarComponent = /** @class */ (function () {
     function NavbarComponent(menuService, _router) {
+        var _this = this;
         this.menuService = menuService;
         this._router = _router;
         this.loginUser = new core_1.EventEmitter();
+        this._router.events.subscribe(function (ev) {
+            if (ev instanceof router_1.NavigationEnd) {
+                _this.logged = _this.menuService.logged;
+            }
+        });
     }
     NavbarComponent.prototype.ngOnInit = function () {
-        this.logged = this.menuService.logged;
     };
     NavbarComponent.prototype.logOut = function () {
-        this.logged = 'false';
+        this.menuService.logged = 'false';
         localStorage.removeItem("logged");
         this._router.navigate(['/']);
     };
