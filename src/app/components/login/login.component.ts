@@ -11,7 +11,6 @@ import { MenuServiceService } from 'src/app/services/menu-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  logged: boolean = false;
 
   email!: string;
   password!: string;
@@ -43,6 +42,7 @@ export class LoginComponent implements OnInit {
             this.menuService.logged = 'true';
             localStorage.setItem("logged", JSON.stringify(this.menuService.logged));
             this._router.navigate(['/booking']);
+            
           },
           error: () => {
             this._flashmessage.show("Invalid Credentials",
@@ -50,9 +50,9 @@ export class LoginComponent implements OnInit {
                 cssClass: 'alert-danger', timeout: 3000
               });
           }
-        }
-        )
+        })
     };
+    
   }
 
 }

@@ -18,7 +18,8 @@ var NavbarComponent = /** @class */ (function () {
         this.logged = this.menuService.logged;
     };
     NavbarComponent.prototype.logOut = function () {
-        localStorage.removeItem('logged');
+        this.logged = 'false';
+        localStorage.removeItem("logged");
         this._router.navigate(['/']);
     };
     __decorate([

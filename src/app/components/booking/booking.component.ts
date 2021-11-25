@@ -15,6 +15,7 @@ export class BookingComponent implements OnInit {
     private _menuService: MenuServiceService) { }
 
   ngOnInit(): void {
+    
   }
 
   onSubmit({value, valid}: {value: ILogin, valid: boolean | null}){

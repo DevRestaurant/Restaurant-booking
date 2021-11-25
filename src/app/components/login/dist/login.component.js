@@ -13,7 +13,6 @@ var LoginComponent = /** @class */ (function () {
         this.menuService = menuService;
         this._flashmessage = _flashmessage;
         this._router = _router;
-        this.logged = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
