@@ -26,7 +26,12 @@ var NavbarComponent = /** @class */ (function () {
     NavbarComponent.prototype.logOut = function () {
         this.menuService.logged = 'false';
         localStorage.removeItem("logged");
-        this._router.navigate(['/']);
+        if (this._router.url === '/') {
+            this._router.navigate(['/booking']);
+        }
+        else {
+            this._router.navigate(['/']);
+        }
     };
     __decorate([
         core_1.Output()
