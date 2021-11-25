@@ -21,7 +21,7 @@ var BookingComponent = /** @class */ (function () {
             this._menuService.logged = 'false';
         }
         else {
-            this._menuService.logged = localStorage.getItem("logged");
+            //this._menuService.logged = localStorage.getItem("logged");
         }
         if (this._menuService.logged === 'false') {
             //navigate to login page if not logged In

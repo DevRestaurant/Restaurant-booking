@@ -23,7 +23,7 @@ export class BookingComponent implements OnInit {
     if (localStorage.getItem("logged") === null) {
       this._menuService.logged = 'false'
     }else {
-      this._menuService.logged = localStorage.getItem("logged");
+      //this._menuService.logged = localStorage.getItem("logged");
     }
     if(this._menuService.logged === 'false'){
 
