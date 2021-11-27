@@ -24,6 +24,7 @@ import { BookingComponent } from './components/booking/booking.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MenuServiceService } from './services/menu-service.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { MenuServiceService } from './services/menu-service.service';
     HttpClientModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [MenuServiceService],
+  providers: [MenuServiceService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

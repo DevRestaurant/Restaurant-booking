@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FlashMessagesService } from 'flash-messages-angular';
 import { IData } from 'src/app/Models/IData';
 import { ILogin } from 'src/app/Models/ILogin';
+import { AuthService } from 'src/app/services/auth.service';
 import { MenuServiceService } from 'src/app/services/menu-service.service';
 
 @Component({
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   login!: ILogin;
 
-  constructor(private menuService: MenuServiceService,
+  constructor(private _authService: AuthService,
     private _flashmessage: FlashMessagesService) { }
 
   ngOnInit(): void {
@@ -42,7 +43,7 @@ export class RegisterComponent implements OnInit {
         });
     }
     else {
-      this.menuService.LoginUser(value)
+      this._authService.LoginUser(value)
         .subscribe({
           next: (data: IData) => {
             const user = data;

@@ -9,8 +9,8 @@ exports.__esModule = true;
 exports.LoginComponent = void 0;
 var core_1 = require("@angular/core");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(menuService, _flashmessage, _router) {
-        this.menuService = menuService;
+    function LoginComponent(_authService, _flashmessage, _router) {
+        this._authService = _authService;
         this._flashmessage = _flashmessage;
         this._router = _router;
     }
@@ -22,15 +22,15 @@ var LoginComponent = /** @class */ (function () {
         if (!valid) {
         }
         else {
-            this.menuService.LoginUser(value)
+            this._authService.LoginUser(value)
                 .subscribe({
                 next: function (data) {
                     var user = data;
                     _this._flashmessage.show(user.message, {
                         cssClass: 'alert-success', timeout: 3000
                     });
-                    _this.menuService.logged = 'true';
-                    localStorage.setItem("logged", JSON.stringify(_this.menuService.logged));
+                    _this._authService.logged = 'true';
+                    localStorage.setItem("logged", JSON.stringify(_this._authService.logged));
                     _this._router.navigate(['/booking']);
                 },
                 error: function () {

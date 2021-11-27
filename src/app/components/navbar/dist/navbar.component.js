@@ -10,21 +10,21 @@ exports.NavbarComponent = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent(menuService, _router) {
+    function NavbarComponent(_router, _authService) {
         var _this = this;
-        this.menuService = menuService;
         this._router = _router;
+        this._authService = _authService;
         this.loginUser = new core_1.EventEmitter();
         this._router.events.subscribe(function (ev) {
             if (ev instanceof router_1.NavigationEnd) {
-                _this.logged = _this.menuService.logged;
+                _this.logged = _this._authService.logged;
             }
         });
     }
     NavbarComponent.prototype.ngOnInit = function () {
     };
     NavbarComponent.prototype.logOut = function () {
-        this.menuService.logged = 'false';
+        this._authService.logged = 'false';
         localStorage.removeItem("logged");
         if (this._router.url === '/') {
             this._router.navigate(['/booking']);

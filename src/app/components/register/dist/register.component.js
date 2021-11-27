@@ -9,8 +9,8 @@ exports.__esModule = true;
 exports.RegisterComponent = void 0;
 var core_1 = require("@angular/core");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(menuService, _flashmessage) {
-        this.menuService = menuService;
+    function RegisterComponent(_authService, _flashmessage) {
+        this._authService = _authService;
         this._flashmessage = _flashmessage;
         this.loginUser = new core_1.EventEmitter();
         this.logged = false;
@@ -29,7 +29,7 @@ var RegisterComponent = /** @class */ (function () {
             });
         }
         else {
-            this.menuService.LoginUser(value)
+            this._authService.LoginUser(value)
                 .subscribe({
                 next: function (data) {
                     var user = data;

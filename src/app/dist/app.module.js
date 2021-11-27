@@ -32,6 +32,7 @@ var booking_component_1 = require("./components/booking/booking.component");
 var testimonial_component_1 = require("./components/testimonial/testimonial.component");
 var welcome_component_1 = require("./components/welcome/welcome.component");
 var menu_service_service_1 = require("./services/menu-service.service");
+var auth_service_1 = require("./services/auth.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -65,7 +66,7 @@ var AppModule = /** @class */ (function () {
                 http_1.HttpClientModule,
                 flash_messages_angular_1.FlashMessagesModule.forRoot()
             ],
-            providers: [menu_service_service_1.MenuServiceService],
+            providers: [menu_service_service_1.MenuServiceService, auth_service_1.AuthService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

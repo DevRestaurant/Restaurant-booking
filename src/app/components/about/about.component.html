@@ -1,32 +1,34 @@
-<section id="about" [ngStyle]="{'marginTop': '4rem'}" class="about">
+<section id="about"
+  [ngStyle]="{'marginTop': '4rem', 'background': 'url(https://lh3.googleusercontent.com/proxy/gee5dgzVpZeMjziqiW-t40CtCDRDQhXOaXgh4jXWb0XkkVKcSderYUCb0AzoxgNukfosi2FFfNKh49aKxbGocxgGMcp5E3hb840GieNUqnnnhzEJFT3bwamka15U6w) center/cover no-repeat'}"
+  class="about">
   <div class="container-fluid">
 
     <div class="row">
 
-      <div class="col-lg-5 align-items-stretch video-box" style='background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0d/86/23/1d/royal-china-restaurant.jpg);'>       
+      <div class="col-lg-5 align-items-stretch"
+        [ngStyle]="{'background': 'url(https://www.restaurantsatbains.com/images/rsb_content_kitchen_1_1000.jpg) center/cover no-repeat'}">
       </div>
 
       <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
 
-        <div class="content">
-          <h3>Eum ipsam laborum deleniti <strong>velit pariatur architecto aut nihil</strong></h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+        <div class="about-title content">
+          <h2>About <span>Us</span></h2>
+          <p [ngStyle]="{'color': '#000', 'fontSize': '18px'}">JustFoodie is an elegant fine dining restaurant with an emphasis on natural, sustainable food, sourced from
+            the Nigeria's
+            most dedicated farmers and food producers.
+
+            We create beautifully crafted dishes, seeking out the best of African produce, with a passion to delight and
+            share our curiosity and our love of delicious artisanal food.
           </p>
-          <p class="fst-italic">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.
+          <p [ngStyle]="{'color': '#000', 'fontSize': '18px'}">
+            We offer a 10 course tasting menu that changes with the seasons and is produce and flavour driven.
           </p>
-          <ul>
-            <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-          </ul>
-          <p>
-            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
+          <p [ngStyle]="{'color': '#000', 'fontSize': '18px'}">
+            The Menus have been… developed / tested / picked / cooked / chilled / salted / aged / frozen / beaten /
+            whipped / poached / nitro’d / clipped / chured / cured / grown / wood-fired / roasted / seared / boiled /
+            fermented / pickled / dehydrated
           </p>
+          <p [ngStyle]="{'color': '#000', 'fontSize': '18px'}">… and most importantly - TASTED!</p>
         </div>
 
       </div>
@@ -37,23 +39,12 @@
 </section><!-- End About Section -->
 
 
-
-
-
-
-
-
-
-
-
-
-
 <section id="why-us" class="why-us">
   <div class="container">
 
     <div class="section-title">
       <h2>Why choose <span>Our Restaurant</span></h2>
-      <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+
     </div>
 
     <div class="row">
@@ -70,7 +61,8 @@
         <div class="box">
           <span>02</span>
           <h4 [ngStyle]="{'fontSize': '18px'}">Customer Reviews</h4>
-          <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+          <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest
+          </p>
         </div>
       </div>
 
@@ -78,7 +70,8 @@
         <div class="box">
           <span>03</span>
           <h4 [ngStyle]="{'fontSize': '18px'}">Restaurant Ambience</h4>
-          <p>Eating is one of the great beauties in life. One of my favorite recreations... the service, the ambience.</p>
+          <p>Eating is one of the great beauties in life. One of my favorite recreations... the service, the ambience.
+          </p>
         </div>
       </div>
 

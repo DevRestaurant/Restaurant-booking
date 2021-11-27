@@ -15,7 +15,7 @@
         <li><a class="nav-link scrollto" routerLink="/menu" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}">Menu</a></li>
         <li><a class="nav-link scrollto" routerLink="/booking" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">Booking</a></li>
+            [routerLinkActiveOptions]="{exact: true}">Reservation</a></li>
         <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}">About</a></li>
         <li><a class="nav-link scrollto" routerLink="/contact" routerLinkActive="active"
@@ -36,14 +36,12 @@
     </ul>
 
     <div *ngIf="logged === 'true'" class="navbar d-flex">
-      <a (click)="logOut()" [ngStyle]="{'cursor': 'pointer', 'marginRight': '1rem'}" class="nav-link scrollto mr-2">Logout</a>
-      <h3 [ngStyle]="{'color': '#fff', 'fontSize': '18px', 'marginTop': '.7rem'}">
-        Samuel Adeosun
+      
+      <h3 [ngStyle]="{'color': '#fff', 'fontSize': '14px', 'marginTop': '.7rem'}">
+        Welcome Samuel
       </h3>
-      <a>
-        <img src="../assets/img/sam.jpeg"
-          [ngStyle]="{'width': '35px', 'height': '35px', 'borderRadius': '50%', 'marginTop': '.3rem'}">
-      </a>
+      <a (click)="logOut()" [ngStyle]="{'cursor': 'pointer'}" class="nav-link scrollto mr-2">Logout</a>
+      
     </div>
 
   </div>

@@ -6,28 +6,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.MenuServiceService = void 0;
+exports.AuthService = void 0;
+var http_1 = require("@angular/common/http");
 var core_1 = require("@angular/core");
-var MenuServiceService = /** @class */ (function () {
-    function MenuServiceService(_httpClient) {
+var httpOptions = {
+    headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' })
+};
+var AuthService = /** @class */ (function () {
+    function AuthService(_httpClient) {
         this._httpClient = _httpClient;
-        this.baseUrl = 'http://localhost:31836/api';
-    }
-    MenuServiceService.prototype.getMenu = function (id) {
-        if (id === null) {
-            var url = this.baseUrl + "/get-meal";
-            return this._httpClient.get(url);
+        this.baseUrl = 'http://localhost:31836/api/Authentication/Login';
+        this.logged = 'false';
+        if (localStorage.getItem("logged") === null) {
+            this.logged = 'false';
         }
         else {
-            var url = this.baseUrl + "/" + id;
-            return this._httpClient.get(url);
+            this.logged = 'true';
         }
+    }
+    AuthService.prototype.LoginUser = function (login) {
+        return this._httpClient.post(this.baseUrl, login, httpOptions);
     };
-    MenuServiceService = __decorate([
+    AuthService = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         })
-    ], MenuServiceService);
-    return MenuServiceService;
+    ], AuthService);
+    return AuthService;
 }());
-exports.MenuServiceService = MenuServiceService;
+exports.AuthService = AuthService;

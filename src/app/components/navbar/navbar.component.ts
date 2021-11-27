@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { ILogin } from 'src/app/Models/ILogin';
-import { MenuServiceService } from 'src/app/services/menu-service.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,11 +14,12 @@ export class NavbarComponent implements OnInit {
   
   logged!: string | null;
 
-  constructor(private menuService: MenuServiceService,
-    private _router: Router) { 
+  constructor(
+    private _router: Router,
+    private _authService: AuthService) { 
       this._router.events.subscribe(ev => {
         if (ev instanceof NavigationEnd) {
-          this.logged = this.menuService.logged;
+          this.logged = this._authService.logged;
         }
       })
     }
@@ -27,7 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut(){
-    this.menuService.logged = 'false';
+    this._authService.logged = 'false';
     localStorage.removeItem("logged");
     if (this._router.url === '/') {
       this._router.navigate(['/booking']);

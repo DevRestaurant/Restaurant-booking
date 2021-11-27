@@ -1,9 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'flash-messages-angular';
 import { IData } from 'src/app/Models/IData';
 import { ILogin } from 'src/app/Models/ILogin';
-import { MenuServiceService } from 'src/app/services/menu-service.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   login!: ILogin;
 
-  constructor(private menuService: MenuServiceService,
+  constructor(
+    private _authService: AuthService,
     private _flashmessage: FlashMessagesService,
     private _router: Router) { }
 
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
       
     }
     else {
-      this.menuService.LoginUser(value)
+      this._authService.LoginUser(value)
         .subscribe({
           next: (data: IData) => {
             const user = data;
@@ -39,8 +40,8 @@ export class LoginComponent implements OnInit {
               {
                 cssClass: 'alert-success', timeout: 3000
               });
-            this.menuService.logged = 'true';
-            localStorage.setItem("logged", JSON.stringify(this.menuService.logged));
+            this._authService.logged = 'true';
+            localStorage.setItem("logged", JSON.stringify(this._authService.logged));
             this._router.navigate(['/booking']);
             
           },
