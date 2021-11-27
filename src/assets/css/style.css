@@ -189,6 +189,33 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.5s;
 }
 
+.about-section-box {
+  background: url("https://claudebosi.com/wp-content/uploads/2020/07/claude-bosi-dish2-squarer.jpg");
+  background-size: cover;
+}
+
+.about-section-box p {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .welcome-pic {
+    visibility: hidden;
+  }
+
+  .about-section-box p:nth-child(2) {
+    color: #ffb03b;
+  }
+
+  .welcome-pic img {
+    width: 0;
+    height: 0;
+  }
+  .about-section-box {
+    background: url("https://www.restaurantsatbains.com/images/rsb_content_dish_18_1000.jpg") center/cover no-repeat;
+  }
+}
+
 @media (max-width: 993px) {
   .mobile-nav-toggle {
     display: block;
@@ -197,10 +224,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 18px;
   }
   .move-name{
-    margin-right: -4rem;
+    margin-right: -4.5rem;
   }
   .mobile-visible{
     visibility: hidden;
+  }
+
+  .booking-content {
+    margin-top: 1rem;
   }
 
   .navbar ul {

@@ -36,16 +36,16 @@
         Welcome, Samuel
       </h3>
       <div class="mobile-visible">
-        <a (click)="logOut()" [ngStyle]="{'cursor': 'pointer', 'marginTop': '.3rem'}" class="nav-link scrollto mr-2">Logout</a>
+        <a (click)="logOut()" [ngStyle]="{'cursor': 'pointer', 'marginTop': '.3rem'}"
+          class="nav-link scrollto mr-2">Logout</a>
       </div>
     </div>
-    <button class="navbar-toggler mobile-nav-toggle" type="button" data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon bg-light" [ngStyle]="{'color': '#000'}"></span>
-    </button>
+      <i class="mt-2 navbar-toggler bi bi-list mobile-nav-toggle" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"></i>
+    <!-- </button> -->
     <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">JustFoodie</h5>
+        <h5 class="offcanvas-title" routerLink="/" id="offcanvasNavbarLabel">JustFoodie</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -59,41 +59,15 @@
           </li>
           <li><a class="nav-link nav-item" routerLink="/contact" data-bs-dismiss="offcanvas"
               aria-label="Close">Contact</a></li>
-              <li *ngIf="logged === 'true'"><a (click)="logOut()" class="nav-link nav-item" data-bs-dismiss="offcanvas"
-                aria-label="Close">Logout</a></li>
-                <li *ngIf="logged === 'false'"><a class="nav-link nav-item" routerLink="/login" data-bs-dismiss="offcanvas"
-                  aria-label="Close">Login</a></li>
+          <li *ngIf="logged === 'true'"><a (click)="logOut()" class="nav-link nav-item" data-bs-dismiss="offcanvas"
+              aria-label="Close">Logout</a></li>
+          <li *ngIf="logged === 'false'"><a class="nav-link nav-item" routerLink="/login" data-bs-dismiss="offcanvas"
+              aria-label="Close">Login</a></li>
+              <li *ngIf="logged === 'false'"><a class="nav-link nav-item" routerLink="/register" data-bs-dismiss="offcanvas"
+                aria-label="Close">Register</a></li>
         </ul>
 
       </div>
     </div>
   </div>
 </header>
-
-<!-- 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link scrollto active" routerLink="/" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-        <li><a class="nav-link scrollto" routerLink="/menu" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">Menu</a></li>
-        <li><a class="nav-link scrollto" routerLink="/booking" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">Reservation</a></li>
-        <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">About</a></li>
-        <li><a class="nav-link scrollto" routerLink="/contact" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">Contact</a></li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav> -->

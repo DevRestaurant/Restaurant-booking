@@ -27,7 +27,7 @@ var LoginComponent = /** @class */ (function () {
                 next: function (data) {
                     var user = data;
                     _this._flashmessage.show(user.message, {
-                        cssClass: 'alert-success', timeout: 3000
+                        cssClass: 'alert-success', timeout: 2000
                     });
                     _this._authService.logged = 'true';
                     localStorage.setItem("logged", JSON.stringify(_this._authService.logged));

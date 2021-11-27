@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
             const user = data;
             this._flashmessage.show(user.message,
               {
-                cssClass: 'alert-success', timeout: 3000
+                cssClass: 'alert-success', timeout: 2000
               });
             this._authService.logged = 'true';
             localStorage.setItem("logged", JSON.stringify(this._authService.logged));

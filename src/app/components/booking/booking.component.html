@@ -1,51 +1,48 @@
+<section class="banner"
+    [ngStyle]="{'background': 'url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80) center/cover no-repeat'}">
 
-<section class = "banner" [ngStyle]="{'background': 'url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80) center/cover no-repeat'}">
-  
-  <div class = "card-container">
-      <div class = "card-img" [ngStyle]="{'background': 'url(assets/img/nice2.jpg) center/cover no-repeat'}">
-          <!-- image here -->
-      </div>
+    <div class="card-container booking-content">
+        <div class="card-img" [ngStyle]="{'background': 'url(assets/img/nice2.jpg) center/cover no-repeat'}">
+            <!-- image here -->
+        </div>
 
-      <div class = "card-content">
-          <h2>Make a Reservation</h2>
-          <form #submitForm="ngForm" (ngSubmit)="onSubmit(submitForm)">
-              <div class = "form-row">
-                  <input type="date" name="date">
+        <div class="card-content">
+            <h2>Make a Reservation</h2>
+            <form #submitForm="ngForm" (ngSubmit)="onSubmit(submitForm)">
+                <div class="form-row">
+                    <input type="date" name="date">
 
-                  <select name = "hours">
-                      <option value = "hour-select">Select Hour</option>
-                      <option value = "10">10: 00</option>
-                      <option value = "10">12: 00</option>
-                      <option value = "10">14: 00</option>
-                      <option value = "10">16: 00</option>
-                      <option value = "10">18: 00</option>
-                      <option value = "10">20: 00</option>
-                      <option value = "10">22: 00</option>
-                  </select>
+                    <select name="hours">
+                        <option value="hour-select">Select Hour</option>
+                        <option value="10">10: 00</option>
+                        <option value="10">12: 00</option>
+                        <option value="10">14: 00</option>
+                        <option value="10">16: 00</option>
+                        <option value="10">18: 00</option>
+                        <option value="10">20: 00</option>
+                        <option value="10">22: 00</option>
+                    </select>
+                </div>
 
-                  
+                <div class="form-row">
+                    <input type="text" placeholder="Full Name">
+                    <input type="text" placeholder="Phone Number">
+                </div>
 
-              </div>
+                <div class="form-row">
+                    <input type="number" placeholder="How Many Persons?" min="1">
+                    <select name="table">
+                        <option value="">Table Type</option>
+                        <option value="">VVIP</option>
+                        <option value="">VIP</option>
+                        <option value="">REGULAR</option>
+                    </select>
+                </div>
 
-              <div class = "form-row">
-                  <input type = "text" placeholder="Full Name">
-                  <input type = "text" placeholder="Phone Number">
-              </div>
-
-              <div class = "form-row">
-                  <input type = "number" placeholder="How Many Persons?" min = "1">
-                  <select name = "table">
-                    <option value = "">Table Type</option>
-                    <option value = "">VVIP</option>
-                    <option value = "">VIP</option>
-                    <option value = "">REGULAR</option>
-                </select>
-              </div>
-
-              <div class="form-row">
-                <input type = "submit" value = "BOOK TABLE">
-              </div>
-          </form>
-      </div>
-  </div>
+                <div class="form-row">
+                    <input type="submit" value="BOOK TABLE">
+                </div>
+            </form>
+        </div>
+    </div>
 </section>
