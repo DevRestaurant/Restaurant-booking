@@ -23,7 +23,7 @@
       </ul>
     </nav>
 
-    <ul *ngIf="logged === 'false'" class="navbar font-change d-flex list-unstyled mt-3 pt-2">
+    <ul *ngIf="logged === 'false'" class=" mobile-visible navbar font-change d-flex list-unstyled mt-3 pt-2">
       <li><a [ngStyle]="{'cursor': 'pointer'}" class="nav-link scrollto" routerLink="/register"
           routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">Register</a></li>
       <li><a [ngStyle]="{'cursor': 'pointer'}" routerLink="/login" routerLinkActive="router-link-active"
@@ -32,11 +32,12 @@
 
     <div *ngIf="logged === 'true'" class="navbar d-flex">
 
-      <h3 [ngStyle]="{'color': '#fff', 'fontSize': '14px', 'marginTop': '.7rem'}">
-        Welcome Samuel
+      <h3 class="move-name" [ngStyle]="{'color': '#fff', 'fontSize': '14px', 'marginTop': '1rem'}">
+        Welcome, Samuel
       </h3>
-      <a (click)="logOut()" [ngStyle]="{'cursor': 'pointer'}" class="nav-link scrollto mr-2">Logout</a>
-
+      <div class="mobile-visible">
+        <a (click)="logOut()" [ngStyle]="{'cursor': 'pointer', 'marginTop': '.3rem'}" class="nav-link scrollto mr-2">Logout</a>
+      </div>
     </div>
     <button class="navbar-toggler mobile-nav-toggle" type="button" data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
