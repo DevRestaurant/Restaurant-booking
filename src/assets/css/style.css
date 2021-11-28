@@ -204,12 +204,17 @@ h6 {
     height: 0;
   }
 
-  .about-section-box {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.527), rgba(255, 255, 255, 0.5)), url("https://www.restaurantsatbains.com/images/rsb_content_dish_16_1000.jpg");
+  .about-section-box h1 {
+    text-align: center;
   }
 
-  .about-section-box::before {
-    background: rgba(255, 255, 255, 0.4);
+  .about-section-box p {
+    text-align: justify;
+    font-size: 16px;
+  }
+
+  .about-section-box {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.527), rgba(255, 255, 255, 0.5)), url("https://www.restaurantsatbains.com/images/rsb_content_dish_16_1000.jpg");
   }
 }
 
