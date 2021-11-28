@@ -33,6 +33,7 @@ var testimonial_component_1 = require("./components/testimonial/testimonial.comp
 var welcome_component_1 = require("./components/welcome/welcome.component");
 var menu_service_service_1 = require("./services/menu-service.service");
 var auth_service_1 = require("./services/auth.service");
+var angularx_social_login_1 = require("angularx-social-login");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -64,9 +65,25 @@ var AppModule = /** @class */ (function () {
                 forms_1.ReactiveFormsModule,
                 forms_1.FormsModule,
                 http_1.HttpClientModule,
+                angularx_social_login_1.SocialLoginModule,
                 flash_messages_angular_1.FlashMessagesModule.forRoot()
             ],
-            providers: [menu_service_service_1.MenuServiceService, auth_service_1.AuthService],
+            providers: [
+                {
+                    provide: 'SocialAuthServiceConfig',
+                    useValue: {
+                        autoLogin: true,
+                        providers: [
+                            {
+                                id: angularx_social_login_1.GoogleLoginProvider.PROVIDER_ID,
+                                provider: new angularx_social_login_1.GoogleLoginProvider('783324307828-ii3gbrgd2b5ok7ht0pndp64d4972j0eg.apps.googleusercontent.com') // your client id
+                            }
+                        ]
+                    }
+                },
+                menu_service_service_1.MenuServiceService,
+                auth_service_1.AuthService
+            ],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

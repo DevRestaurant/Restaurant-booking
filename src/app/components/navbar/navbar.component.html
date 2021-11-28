@@ -3,7 +3,7 @@
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
     <div class="logo me-auto">
-      <h1><a routerLink="/">JustFoodie</a></h1>
+      <h1><a [ngStyle]="{'color': '#42273B', 'fontWeight': '600'}" routerLink="/">JustFoodie</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
     </div>
@@ -32,7 +32,7 @@
 
     <div *ngIf="logged === 'true'" class="navbar d-flex">
 
-      <h3 class="move-name" [ngStyle]="{'color': '#fff', 'fontSize': '14px', 'marginTop': '1rem'}">
+      <h3 class="move-name" [ngStyle]="{'color': '#42273B', 'fontSize': '14px', 'marginTop': '1rem', 'fontWeight' : '600'}">
         Welcome, Samuel
       </h3>
       <div class="mobile-visible">

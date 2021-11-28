@@ -25,6 +25,7 @@ import { TestimonialComponent } from './components/testimonial/testimonial.compo
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MenuServiceService } from './services/menu-service.service';
 import { AuthService } from './services/auth.service';
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -53,9 +54,24 @@ import { AuthService } from './services/auth.service';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    SocialLoginModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [MenuServiceService, AuthService],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true, //keeps the user signed in
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('783324307828-ii3gbrgd2b5ok7ht0pndp64d4972j0eg.apps.googleusercontent.com') // your client id
+          }
+        ]
+      } as SocialAuthServiceConfig
+    },
+    MenuServiceService,
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

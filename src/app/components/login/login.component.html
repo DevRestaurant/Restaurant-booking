@@ -56,13 +56,16 @@
             <div class="d-flex justify-content-between modal-footer m-auto">
               <div class="justify-content-start col-lg-8 col-12 m-0 p-0 mt-2">
                 <h6 class="col-lg-8">New account?
-                <a [ngStyle]="{'cursor': 'pointer', 'fontFamily': 'sans serif',
-                 'textDecoration': 'none', 'color': '#346eeb', 'marginLeft': '.1rem'}"
+                <a [ngStyle]="{'cursor': 'pointer', 'fontFamily': 'Raleway',
+                 'textDecoration': 'none', 'color': '#346eeb', 'marginLeft': '.1rem', 'fontWeight':'600'}"
                  routerLink="/register" routerLinkActive="router-link-active"  class="col-lg-4">Register</a> </h6>
               </div>
 
               <button class="col-lg-3 col-12 pt-2 pb-2" type="submit" [ngStyle]="{'color': '#fff', 'border': 0,
-               'borderRadius': '5px', 'backgroundColor': '#eb9e34'}">Login</button>
+               'borderRadius': '5px', 'backgroundColor': '#42273B'}">Login</button>
+               <!-- <button (click)="loginWithGoogle()" mat-raised-button class="google-login-btn">
+                Google
+              </button>   -->
             </div>
           </div>
 

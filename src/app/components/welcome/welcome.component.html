@@ -3,13 +3,17 @@
 		<div class="row">
 			<div class="col-lg-6 col-md-7 col-12 text-center">
 				<div class="container inner-column">
-					<h1 [ngStyle]="{'fontFamily': 'poppins'}">Welcome To <span>JustFoodie Restaurent</span></h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem.</p>
-					<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. Sed aliquam metus lorem, a pellentesque tellus pretium a. Nulla placerat elit in justo vestibulum, et maximus sem pulvinar.</p>
-					<a class="btn btn-warning" [ngStyle]="{'textAlign': 'right', 'color': '#fff', 'backgroundColor': '#ffb03b'}" [routerLink]="['/booking']" routerLinkActive="router-link-active" >Reservation</a>
+					<h1 [ngStyle]="{'fontFamily': 'Raleway'}">Welcome To <span>JustFoodie Restaurent</span></h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at
+						pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue,
+						eget lacinia lectus erat et sem.</p>
+					<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. Sed aliquam metus lorem, a pellentesque
+						tellus pretium a. Nulla placerat elit in justo vestibulum, et maximus sem pulvinar.</p>
+					<a [routerLink]="['/booking']" routerLinkActive="router-link-active" class="book-a-table-btn">Reservation</a>
 				</div>
 			</div>
-			<div class="welcome-pic col-lg-5 col-md-5 col-12"><img src="https://www.restaurantsatbains.com/images/rsb_content_dish_3_1000.jpg" alt="" class="img-fluid"></div>
+			<div class="welcome-pic col-lg-5 col-md-5 col-12"><img
+					src="https://www.restaurantsatbains.com/images/rsb_content_dish_3_1000.jpg" alt="" class="img-fluid"></div>
 		</div>
 	</div>
 </div>

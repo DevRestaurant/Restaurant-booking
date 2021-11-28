@@ -4,6 +4,7 @@ import { FlashMessagesService } from 'flash-messages-angular';
 import { IData } from 'src/app/Models/IData';
 import { ILogin } from 'src/app/Models/ILogin';
 import { AuthService } from 'src/app/services/auth.service';
+import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private _authService: AuthService,
     private _flashmessage: FlashMessagesService,
-    private _router: Router) { }
+    private _router: Router,
+    private socialAuthService: SocialAuthService) { }
 
   ngOnInit(): void {
     
@@ -54,6 +56,11 @@ export class LoginComponent implements OnInit {
         })
     };
     
+  }
+
+  loginWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then(() => this._router.navigate(['/']));
   }
 
 }
