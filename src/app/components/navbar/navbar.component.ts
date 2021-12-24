@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private _router: Router,
     private _authService: AuthService) { 
+      
       this._router.events.subscribe(ev => {
         if (ev instanceof NavigationEnd) {
           this.logged = this._authService.logged;
@@ -37,5 +38,4 @@ export class NavbarComponent implements OnInit {
       this._router.navigate(['/']);
     }
   }
-  
 }

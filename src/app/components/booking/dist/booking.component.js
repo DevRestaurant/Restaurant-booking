@@ -9,9 +9,8 @@ exports.__esModule = true;
 exports.BookingComponent = void 0;
 var core_1 = require("@angular/core");
 var BookingComponent = /** @class */ (function () {
-    function BookingComponent(router, _menuService, _authService) {
+    function BookingComponent(router, _authService) {
         this.router = router;
-        this._menuService = _menuService;
         this._authService = _authService;
     }
     BookingComponent.prototype.ngOnInit = function () {
@@ -20,13 +19,13 @@ var BookingComponent = /** @class */ (function () {
         var value = _a.value, valid = _a.valid;
         if (localStorage.getItem("logged") === null) {
             this._authService.logged = 'false';
+            if (this._authService.logged === 'false') {
+                //navigate to login page if not logged In
+                this.router.navigate(['/login']);
+            }
         }
         else {
             //this._menuService.logged = localStorage.getItem("logged");
-        }
-        if (this._authService.logged === 'false') {
-            //navigate to login page if not logged In
-            this.router.navigate(['/login']);
         }
     };
     BookingComponent = __decorate([

@@ -13,7 +13,6 @@ export class BookingComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _menuService: MenuServiceService,
     private _authService: AuthService) { }
 
   ngOnInit(): void {
@@ -23,15 +22,15 @@ export class BookingComponent implements OnInit {
   onSubmit({value, valid}: {value: ILogin, valid: boolean | null}){
 
     if (localStorage.getItem("logged") === null) {
-      this._authService.logged = 'false'
+      this._authService.logged = 'false';
+
+      if(this._authService.logged === 'false'){
+
+        //navigate to login page if not logged In
+        this.router.navigate(['/login']);
+      }
     }else {
       //this._menuService.logged = localStorage.getItem("logged");
     }
-    if(this._authService.logged === 'false'){
-
-      //navigate to login page if not logged In
-      this.router.navigate(['/login']);
-    }
   }
-
 }

@@ -1,6 +1,8 @@
+import { IMeal } from "./IMeal";
+
 export interface IData{
-  data: string;
+  data: IMeal[];
   succeeded: boolean;
   statusCode: number;
-message: string;
+  message: string;
 }

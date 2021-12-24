@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  baseUrl: string = 'http://localhost:31836/api/Authentication/Login';
+  baseUrl: string = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api/Authentication/Login';
   logged: string | null = 'false';
 
 

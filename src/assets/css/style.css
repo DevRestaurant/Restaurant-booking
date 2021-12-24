@@ -112,6 +112,7 @@ h6 {
 .book-a-table-btn:hover {
   background: #fff;
   color: #42273B;
+  border: 1px solid #42273B;
 }
 
 @media (max-width: 992px) {

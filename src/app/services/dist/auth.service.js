@@ -15,7 +15,7 @@ var httpOptions = {
 var AuthService = /** @class */ (function () {
     function AuthService(_httpClient) {
         this._httpClient = _httpClient;
-        this.baseUrl = 'http://localhost:31836/api/Authentication/Login';
+        this.baseUrl = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api/Authentication/Login';
         this.logged = 'false';
         if (localStorage.getItem("logged") === null) {
             this.logged = 'false';

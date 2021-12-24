@@ -13,15 +13,13 @@ var MenuServiceService = /** @class */ (function () {
         this._httpClient = _httpClient;
         this.baseUrl = 'http://localhost:31836/api';
     }
-    MenuServiceService.prototype.getMenu = function (id) {
-        if (id === null) {
-            var url = this.baseUrl + "/get-meal";
-            return this._httpClient.get(url);
-        }
-        else {
-            var url = this.baseUrl + "/" + id;
-            return this._httpClient.get(url);
-        }
+    MenuServiceService.prototype.getMeals = function () {
+        var url = this.baseUrl + "/meal";
+        return this._httpClient.get(url);
+    };
+    MenuServiceService.prototype.getMeal = function (id) {
+        var url = this.baseUrl + "/" + id;
+        return this._httpClient.get(url);
     };
     MenuServiceService = __decorate([
         core_1.Injectable({
