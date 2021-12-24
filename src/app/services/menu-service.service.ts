@@ -10,7 +10,7 @@ import { IData } from '../Models/IData';
 })
 export class MenuServiceService{
 
-  baseUrl: string = 'http://localhost:31836/api';
+  baseUrl: string = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api';
   
 
   constructor(private _httpClient: HttpClient) { }

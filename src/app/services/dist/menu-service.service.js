@@ -11,7 +11,7 @@ var core_1 = require("@angular/core");
 var MenuServiceService = /** @class */ (function () {
     function MenuServiceService(_httpClient) {
         this._httpClient = _httpClient;
-        this.baseUrl = 'http://localhost:31836/api';
+        this.baseUrl = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api';
     }
     MenuServiceService.prototype.getMeals = function () {
         var url = this.baseUrl + "/meal";
