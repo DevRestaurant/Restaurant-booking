@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlashMessagesModule } from 'flash-messages-angular';
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MenuServiceService } from './services/menu-service.service';
 import { AuthService } from './services/auth.service';
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
+import { AuthReducer } from './Reducers/auth.reducers';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 
     FormsModule,
     HttpClientModule,
     SocialLoginModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    StoreModule.forRoot({auth: AuthReducer})
   ],
   providers: [
     {

@@ -9,9 +9,13 @@ exports.__esModule = true;
 exports.BookingComponent = void 0;
 var core_1 = require("@angular/core");
 var BookingComponent = /** @class */ (function () {
-    function BookingComponent(router, _authService) {
+    function BookingComponent(router, _authService, store) {
         this.router = router;
         this._authService = _authService;
+        this.store = store;
+        store.select('auth').subscribe(function (data) {
+            console.log(data);
+        });
     }
     BookingComponent.prototype.ngOnInit = function () {
     };

@@ -3,6 +3,7 @@ import { ILogin } from 'src/app/Models/ILogin';
 import { Router } from '@angular/router';
 import { MenuServiceService } from 'src/app/services/menu-service.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-booking',
@@ -13,7 +14,12 @@ export class BookingComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _authService: AuthService) { }
+    private _authService: AuthService,
+    private store: Store<{auth: ILogin}>) {
+      store.select('auth').subscribe(data => {
+        console.log(data);
+      })
+     }
 
   ngOnInit(): void {
     

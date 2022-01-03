@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  baseUrl: string = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api/Authentication/Login';
+  private Base_Url: string = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api/Authentication/Login';
   logged: string | null = 'false';
 
 
@@ -27,6 +27,6 @@ export class AuthService {
 
   LoginUser(login: ILogin) : Observable<any> {
    
-    return this._httpClient.post<any>(this.baseUrl, login, httpOptions);
+    return this._httpClient.post<any>(this.Base_Url, login, httpOptions);
   }
 }
