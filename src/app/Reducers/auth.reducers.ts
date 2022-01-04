@@ -9,7 +9,8 @@ export const initialState: any = {
 const reducer = createReducer(
   initialState,
   on(AuthLoginAction, (state: any, action: { payload: any; }) => {
-     return action.payload
+    state = action.payload;
+     return state
   }));
 
   export function AuthReducer(state = initialState, action: Action){

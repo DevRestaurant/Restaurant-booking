@@ -8,7 +8,8 @@ exports.initialState = {
     password: ""
 };
 var reducer = store_1.createReducer(exports.initialState, store_1.on(auth_actions_1.AuthLoginAction, function (state, action) {
-    return action.payload;
+    state = action.payload;
+    return state;
 }));
 function AuthReducer(state, action) {
     if (state === void 0) { state = exports.initialState; }

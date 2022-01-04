@@ -5,4 +5,6 @@ var AuthActionTypes;
 (function (AuthActionTypes) {
     AuthActionTypes["Login"] = "[Auth] Login";
     AuthActionTypes["Register"] = "[Auth] Register";
+    AuthActionTypes["LoginSuccess"] = "[Auth] Fetch User Success";
+    AuthActionTypes["LoginFailed"] = "[Auth] Fetch User Failed";
 })(AuthActionTypes = exports.AuthActionTypes || (exports.AuthActionTypes = {}));

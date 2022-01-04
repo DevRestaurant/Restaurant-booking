@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlashMessagesModule } from 'flash-messages-angular';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { MenuServiceService } from './services/menu-service.service';
 import { AuthService } from './services/auth.service';
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { AuthReducer } from './Reducers/auth.reducers';
+import { AuthEffects } from './Effects/auth.effects';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { AuthReducer } from './Reducers/auth.reducers';
     HttpClientModule,
     SocialLoginModule,
     FlashMessagesModule.forRoot(),
-    StoreModule.forRoot({auth: AuthReducer})
+    StoreModule.forRoot({auth: AuthReducer}),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [
     {

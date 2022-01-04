@@ -13,6 +13,7 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/common/http");
 var flash_messages_angular_1 = require("flash-messages-angular");
 var store_1 = require("@ngrx/store");
+var effects_1 = require("@ngrx/effects");
 var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
 var navbar_component_1 = require("./components/navbar/navbar.component");
@@ -36,6 +37,7 @@ var menu_service_service_1 = require("./services/menu-service.service");
 var auth_service_1 = require("./services/auth.service");
 var angularx_social_login_1 = require("angularx-social-login");
 var auth_reducers_1 = require("./Reducers/auth.reducers");
+var auth_effects_1 = require("./Effects/auth.effects");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -69,7 +71,8 @@ var AppModule = /** @class */ (function () {
                 http_1.HttpClientModule,
                 angularx_social_login_1.SocialLoginModule,
                 flash_messages_angular_1.FlashMessagesModule.forRoot(),
-                store_1.StoreModule.forRoot({ auth: auth_reducers_1.AuthReducer })
+                store_1.StoreModule.forRoot({ auth: auth_reducers_1.AuthReducer }),
+                effects_1.EffectsModule.forRoot([auth_effects_1.AuthEffects])
             ],
             providers: [
                 {
