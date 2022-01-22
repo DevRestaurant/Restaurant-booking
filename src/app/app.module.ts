@@ -28,8 +28,13 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MenuServiceService } from './services/menu-service.service';
 import { AuthService } from './services/auth.service';
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
-import { AuthReducer } from './Reducers/auth.reducers';
-import { AuthEffects } from './Effects/auth.effects';
+import { EntityCollectionReducerMethodsFactory, EntityDataModule, EntityDefinitionService, HttpUrlGenerator, PersistenceResultHandler } from '@ngrx/data';
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { userEntityMetaData } from './MetaData/entity-metadata';
+import { EntityStoreModule } from './entity-store/entity-store.module';
+import { AdditionalPersistenceResultHandler } from './additional-persistence-result-handler';
+import { AdditionalEntityCollectionReducerMethodsFactory } from './services/factory-reducer.service';
 
 @NgModule({
   declarations: [
@@ -55,15 +60,32 @@ import { AuthEffects } from './Effects/auth.effects';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    EntityStoreModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     SocialLoginModule,
     FlashMessagesModule.forRoot(),
-    StoreModule.forRoot({auth: AuthReducer}),
-    EffectsModule.forRoot([AuthEffects])
+    HttpClientModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    EntityDataModule.forRoot({
+      entityMetadata: userEntityMetaData,
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+    })
   ],
   providers: [
+    { provide: PersistenceResultHandler,
+      useClass: AdditionalPersistenceResultHandler
+    },
+    {
+      provide: EntityCollectionReducerMethodsFactory,
+      useClass: AdditionalEntityCollectionReducerMethodsFactory
+    },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
@@ -76,8 +98,12 @@ import { AuthEffects } from './Effects/auth.effects';
         ]
       } as SocialAuthServiceConfig
     },
-    MenuServiceService,
+    {
+      provide: HttpUrlGenerator,
+      useClass: MenuServiceService,
+    },
     AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

@@ -36,8 +36,13 @@ var welcome_component_1 = require("./components/welcome/welcome.component");
 var menu_service_service_1 = require("./services/menu-service.service");
 var auth_service_1 = require("./services/auth.service");
 var angularx_social_login_1 = require("angularx-social-login");
-var auth_reducers_1 = require("./Reducers/auth.reducers");
-var auth_effects_1 = require("./Effects/auth.effects");
+var data_1 = require("@ngrx/data");
+var environment_1 = require("src/environments/environment");
+var store_devtools_1 = require("@ngrx/store-devtools");
+var entity_metadata_1 = require("./MetaData/entity-metadata");
+var entity_store_module_1 = require("./entity-store/entity-store.module");
+var additional_persistence_result_handler_1 = require("./additional-persistence-result-handler");
+var factory_reducer_service_1 = require("./services/factory-reducer.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -66,15 +71,32 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule,
+                entity_store_module_1.EntityStoreModule,
                 forms_1.ReactiveFormsModule,
                 forms_1.FormsModule,
                 http_1.HttpClientModule,
                 angularx_social_login_1.SocialLoginModule,
                 flash_messages_angular_1.FlashMessagesModule.forRoot(),
-                store_1.StoreModule.forRoot({ auth: auth_reducers_1.AuthReducer }),
-                effects_1.EffectsModule.forRoot([auth_effects_1.AuthEffects])
+                http_1.HttpClientModule,
+                store_1.StoreModule.forRoot({}),
+                effects_1.EffectsModule.forRoot([]),
+                data_1.EntityDataModule.forRoot({
+                    entityMetadata: entity_metadata_1.userEntityMetaData
+                }),
+                store_devtools_1.StoreDevtoolsModule.instrument({
+                    maxAge: 25,
+                    logOnly: environment_1.environment.production,
+                    autoPause: true
+                })
             ],
             providers: [
+                { provide: data_1.PersistenceResultHandler,
+                    useClass: additional_persistence_result_handler_1.AdditionalPersistenceResultHandler
+                },
+                {
+                    provide: data_1.EntityCollectionReducerMethodsFactory,
+                    useClass: factory_reducer_service_1.AdditionalEntityCollectionReducerMethodsFactory
+                },
                 {
                     provide: 'SocialAuthServiceConfig',
                     useValue: {
@@ -87,7 +109,10 @@ var AppModule = /** @class */ (function () {
                         ]
                     }
                 },
-                menu_service_service_1.MenuServiceService,
+                {
+                    provide: data_1.HttpUrlGenerator,
+                    useClass: menu_service_service_1.MenuServiceService
+                },
                 auth_service_1.AuthService
             ],
             bootstrap: [app_component_1.AppComponent]

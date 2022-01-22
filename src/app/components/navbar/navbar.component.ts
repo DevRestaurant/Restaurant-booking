@@ -31,6 +31,7 @@ export class NavbarComponent implements OnInit {
   logOut(){
     this._authService.logged = 'false';
     localStorage.removeItem("logged");
+    localStorage.removeItem("token");
     if (this._router.url === '/') {
       this._router.navigate(['/booking']);
     }

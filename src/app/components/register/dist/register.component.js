@@ -21,7 +21,6 @@ var RegisterComponent = /** @class */ (function () {
         this.logged = !this.logged;
     };
     RegisterComponent.prototype.onSubmit = function (_a) {
-        var _this = this;
         var value = _a.value, valid = _a.valid;
         if (!valid) {
             this._flashmessage.show("Please fill this out correctly", {
@@ -29,22 +28,25 @@ var RegisterComponent = /** @class */ (function () {
             });
         }
         else {
-            this._authService.LoginUser(value)
-                .subscribe({
-                next: function (data) {
-                    var user = data;
-                    _this._flashmessage.show(user.message, {
-                        cssClass: 'alert-success', timeout: 3000
-                    });
-                    _this.logged = true;
-                },
-                error: function (err) {
-                    console.log(err.error);
-                    _this._flashmessage.show("Invalid Credentials", {
-                        cssClass: 'alert-danger', timeout: 3000
-                    });
-                }
-            });
+            // this._authService.LoginUser(value)
+            //   .subscribe({
+            //     next: (data: IData) => {
+            //       const user = data;
+            //       this._flashmessage.show(user.message,
+            //         {
+            //           cssClass: 'alert-success', timeout: 3000
+            //         });
+            //       this.logged = true;
+            //     },
+            //     error: (err) => {
+            //       console.log(err.error);
+            //       this._flashmessage.show("Invalid Credentials",
+            //         {
+            //           cssClass: 'alert-danger', timeout: 3000
+            //         });
+            //     }
+            //   }
+            //   )
         }
         ;
     };

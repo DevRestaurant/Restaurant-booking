@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MenuServiceService } from 'src/app/services/menu-service.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Store } from '@ngrx/store';
+import { IUser } from 'src/app/Models/IUser';
 
 @Component({
   selector: 'app-booking',
@@ -15,7 +16,7 @@ export class BookingComponent implements OnInit {
   constructor(
     private router: Router,
     private _authService: AuthService,
-    private store: Store<{auth: ILogin}>) {
+    private store: Store<{auth: IUser}>) {
       store.select('auth').subscribe(data => {
         console.log(data);
       })

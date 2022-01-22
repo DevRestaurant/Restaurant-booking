@@ -9,42 +9,39 @@ exports.__esModule = true;
 exports.LoginComponent = void 0;
 var core_1 = require("@angular/core");
 var angularx_social_login_1 = require("angularx-social-login");
-var auth_actions_1 = require("src/app/Actions/auth.actions");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(_authService, _flashmessage, _router, socialAuthService, store) {
+    function LoginComponent(_authService, _flashmessage, _router, socialAuthService) {
         this._authService = _authService;
         this._flashmessage = _flashmessage;
         this._router = _router;
         this.socialAuthService = socialAuthService;
-        this.store = store;
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.onSubmit = function (_a) {
+        var _this = this;
         var value = _a.value, valid = _a.valid;
         if (!valid) {
         }
         else {
-            this.store.dispatch(auth_actions_1.AuthLoginAction({ payload: value }));
-            // this._authService.LoginUser(value)
-            //   .subscribe({
-            //     next: (data: IData) => {
-            //       const user = data;
-            //       this._flashmessage.show(user.message,
-            //         {
-            //           cssClass: 'alert-success', timeout: 2000
-            //         });
-            //       this._authService.logged = 'true';
-            //       localStorage.setItem("logged", JSON.stringify(this._authService.logged));
-            //       this._router.navigate(['/booking']);
-            //     },
-            //     error: () => {
-            //       this._flashmessage.show("Invalid Credentials",
-            //         {
-            //           cssClass: 'alert-danger', timeout: 3000
-            //         });
-            //     }
-            //   })
+            this._authService.LoginUser(value)
+                .subscribe({
+                next: function (data) {
+                    var user = data;
+                    _this._flashmessage.show(user.message, {
+                        cssClass: 'alert-success', timeout: 2000
+                    });
+                    _this._authService.logged = 'true';
+                    localStorage.setItem("logged", JSON.stringify(_this._authService.logged));
+                    localStorage.setItem("token", JSON.stringify(data.data));
+                    _this._router.navigate(['/booking']);
+                },
+                error: function (data) {
+                    _this._flashmessage.show(data.message, {
+                        cssClass: 'alert-danger', timeout: 3000
+                    });
+                }
+            });
         }
         ;
     };

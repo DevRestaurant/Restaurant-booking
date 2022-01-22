@@ -15,17 +15,17 @@ var httpOptions = {
 var AuthService = /** @class */ (function () {
     function AuthService(_httpClient) {
         this._httpClient = _httpClient;
-        this.Base_Url = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api/Authentication/Login';
+        this.baseUrl = 'http://localhost:31836/api';
         this.logged = 'false';
-        if (localStorage.getItem("logged") === null) {
-            this.logged = 'false';
-        }
-        else {
-            this.logged = 'true';
-        }
+        // if (localStorage.getItem("logged") === null) {
+        //   this.logged = 'false'
+        // }
+        // else{
+        //   this.logged = 'true';
+        // }
     }
     AuthService.prototype.LoginUser = function (login) {
-        return this._httpClient.post(this.Base_Url, login, httpOptions);
+        return this._httpClient.post(this.baseUrl + "/Authentication/Login", login, httpOptions);
     };
     AuthService = __decorate([
         core_1.Injectable({

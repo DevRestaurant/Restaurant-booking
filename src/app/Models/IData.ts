@@ -1,7 +1,7 @@
 import { IMeal } from "./IMeal";
 
 export interface IData{
-  data: IMeal[];
+  data: any[];
   succeeded: boolean;
   statusCode: number;
   message: string;

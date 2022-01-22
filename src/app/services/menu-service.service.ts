@@ -1,28 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { IMeal } from '../Models/IMeal';
-import { IData } from '../Models/IData';
+import { DefaultHttpUrlGenerator, HttpResourceUrls, HttpUrlGenerator, Pluralizer } from '@ngrx/data';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class MenuServiceService{
+export class MenuServiceService extends DefaultHttpUrlGenerator{
 
-  baseUrl: string = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api';
-  
+  //private baseUrl: string = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api';
+  private baseUrl: string = 'http://localhost:31836/api';
 
-  constructor(private _httpClient: HttpClient) { }
-
-  getMeals() : Observable<IData> {
-      const url = `${this.baseUrl}/meal`;
-      return this._httpClient.get<IData>(url);
+  constructor(
+    myPluralizer: Pluralizer) {
+    super(myPluralizer);
   }
 
-  getMeal(id: string) : Observable<IMeal> {
-    const url = `${this.baseUrl}/${id}`;
-      return this._httpClient.get<IMeal>(url);
+  protected getResourceUrls(entityName: string, root: string): HttpResourceUrls{
+    let resourceUrl = this.knownHttpResourceUrls[entityName];
+    if (entityName == 'Meal') {
+      const url = `${this.baseUrl}/Meal`;
+      resourceUrl = {
+        entityResourceUrl : url,
+        collectionResourceUrl : url
+      }
+      this.registerHttpResourceUrls({[entityName]: resourceUrl});
+    }
+    return resourceUrl;
   }
 
 }

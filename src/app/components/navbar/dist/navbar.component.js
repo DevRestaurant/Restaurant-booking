@@ -26,6 +26,7 @@ var NavbarComponent = /** @class */ (function () {
     NavbarComponent.prototype.logOut = function () {
         this._authService.logged = 'false';
         localStorage.removeItem("logged");
+        localStorage.removeItem("token");
         if (this._router.url === '/') {
             this._router.navigate(['/booking']);
         }

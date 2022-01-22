@@ -43,26 +43,26 @@ export class RegisterComponent implements OnInit {
         });
     }
     else {
-      this._authService.LoginUser(value)
-        .subscribe({
-          next: (data: IData) => {
-            const user = data;
-            this._flashmessage.show(user.message,
-              {
-                cssClass: 'alert-success', timeout: 3000
-              });
-            this.logged = true;
-          },
-          error: (err) => {
-            console.log(err.error);
+      // this._authService.LoginUser(value)
+      //   .subscribe({
+      //     next: (data: IData) => {
+      //       const user = data;
+      //       this._flashmessage.show(user.message,
+      //         {
+      //           cssClass: 'alert-success', timeout: 3000
+      //         });
+      //       this.logged = true;
+      //     },
+      //     error: (err) => {
+      //       console.log(err.error);
             
-            this._flashmessage.show("Invalid Credentials",
-              {
-                cssClass: 'alert-danger', timeout: 3000
-              });
-          }
-        }
-        )
+      //       this._flashmessage.show("Invalid Credentials",
+      //         {
+      //           cssClass: 'alert-danger', timeout: 3000
+      //         });
+      //     }
+      //   }
+      //   )
     };
   }
 
