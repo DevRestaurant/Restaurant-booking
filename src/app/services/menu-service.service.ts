@@ -7,8 +7,8 @@ import { DefaultHttpUrlGenerator, HttpResourceUrls, HttpUrlGenerator, Pluralizer
 })
 export class MenuServiceService extends DefaultHttpUrlGenerator{
 
-  //private baseUrl: string = 'https://restaurantbookingapi20211224110020.azurewebsites.net/api';
-  private baseUrl: string = 'http://localhost:31836/api';
+  private baseUrl: string = 'https://restaurantbookingapi.herokuapp.com/api/v1';
+  //private baseUrl: string = 'http://localhost:31836/api';
 
   constructor(
     myPluralizer: Pluralizer) {
@@ -18,7 +18,7 @@ export class MenuServiceService extends DefaultHttpUrlGenerator{
   protected getResourceUrls(entityName: string, root: string): HttpResourceUrls{
     let resourceUrl = this.knownHttpResourceUrls[entityName];
     if (entityName == 'Meal') {
-      const url = `${this.baseUrl}/Meal`;
+      const url = `${this.baseUrl}/Meal/get-all-meals`;
       resourceUrl = {
         entityResourceUrl : url,
         collectionResourceUrl : url

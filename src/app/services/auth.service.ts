@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private baseUrl: string = 'http://localhost:31836/api';
+  private baseUrl: string = 'https://restaurantbookingapi.herokuapp.com/api/v1';
   logged: string | null = 'false';
 
 
